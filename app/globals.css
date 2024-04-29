@@ -382,8 +382,7 @@ html {
 }
 
 .detail .banner {
-    display: flex;
-    align-items: flex-start;
+    display: block;
     justify-content: normal;
     padding: 100px 50px;
     background-size: cover;
@@ -391,7 +390,7 @@ html {
     background-color: transparent;
 }
 
-.detail .banner .opacity {
+.detail .banner::before {
     content: '';
     display: block;
     position: absolute;
@@ -402,16 +401,17 @@ html {
     background: rgba(9, 9, 9, 0.85);
     z-index: 1;
 }
-.detail .banner .content {
-    z-index: 2;
+.detail .content {
+    z-index: 3;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    position: relative;
 }
-.detail .banner .left {
+.detail .content .left {
     width: 30%;
 }
-.detail .banner .left .imdb {
+.detail .content .left .imdb {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
@@ -421,7 +421,7 @@ html {
     align-items: center;
     justify-content: center;
 }
-.detail .banner .left .imdb a {
+.detail .content .left .imdb a {
     cursor: pointer;
     background: rgb(245, 197, 24);
     color: #333;
@@ -435,50 +435,55 @@ html {
     align-items: center;
     justify-content: center;
 }
-.detail .banner .right {
+.detail .content .right {
     width: 67%;
 }
-.detail .banner h2 {
+.detail .content h2 {
     color: #fff;
     display: block;
     font-size: 24px;
     margin-bottom: 5px;
 }
-.detail .banner h3 {
+
+.detail .d_similar {
+    z-index: 2;
+    position: relative;
+}
+.detail .content h3 {
     color: #fff;
     font-size: 16px;
     display: block;
     font-weight: 500;
     margin-bottom: 15px;
 }
-.detail .banner h4 {
+.detail .content h4 {
     color: #fff;
     font-size: 24px;
     display: block;
     margin-bottom: 15px;
 }
-.detail .banner .right .d_title {
+.detail .content .right .d_title {
     display: flex;
     align-items: center;
     justify-content: normal;
 }
-.detail .banner .right .d_title span {
+.detail .content .right .d_title span {
     display: block;
     margin-left: 2%;
     font-weight: 500;
 }
-.detail .banner .right .d_info {
+.detail .content .right .d_info {
     display: block;
     margin-bottom: 15px;
 }
-.detail .banner .right .d_info .run_time {
+.detail .content .right .d_info .run_time {
     color: #fff;
     font-size: 16px;
 }
-.detail .banner .right .d_trail {
+.detail .content .right .d_trail {
     color: #fff;
 }
-.detail .banner .right .d_average {
+.detail .content .right .d_average {
     border-radius: 100%;
     font-size: 18px;
     font-weight: 600;
@@ -495,34 +500,34 @@ html {
     background-clip: padding-box, border-box;
     color: #333;
 }
-.detail .banner .right .d_trail p {
+.detail .content .right .d_trail p {
     display: block;
     font-size: 18px;
     margin-bottom: 10px;
 }
-.detail .banner .right .d_trail .d_tail_youtube {
+.detail .content .right .d_trail .d_tail_youtube {
     display: block;
     width: 100%;
 }
-.detail .banner .right .d_trail .d_tail_youtube iframe {
+.detail .content .right .d_trail .d_tail_youtube iframe {
     width: 100%;
     display: block;
 }
-.detail .banner .right .d_overview {
+.detail .content .right .d_overview {
     display: block;
     margin-top: 30px;
 }
-.detail .banner .right .d_overview p {
+.detail .content .right .d_overview p {
     color: #fff;
     font-size: 18px;
     margin-bottom: 5px;
 }
-.detail .banner .right .d_overview span {
+.detail .content .right .d_overview span {
     color: #fff;
     line-height: 160%;
     font-size: 18px;
 }
-.detail .banner {
+.detail .content {
 }
 
 .donut {

@@ -14,7 +14,7 @@ export default function PopularMovie() {
         const fetchMovies = async () => {
             try {
                 const res = await fetch(
-                    `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=ko-KR`
+                    `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=ko-KR&region=KR`
                 );
                 const data = await res.json();
                 setMovie(data);
@@ -26,7 +26,7 @@ export default function PopularMovie() {
         fetchMovies();
     }, [API_KEY]);
 
-    console.log(movie?.results);
+    // console.log('역대탑', movie?.results);
     const prevBtn = () => {
         if (slidePx < 0) {
             setSlidePx(slidePx + 790);
@@ -69,7 +69,7 @@ export default function PopularMovie() {
                         }).format(new Date(movie_date));
                         return (
                             <li key={i} style={{ transform: `translateX(${slidePx}px)`, transition: '0.5s ease all' }}>
-                                <Link href="/">
+                                <Link href={`/detail/${e.id}` + `?id=${e.id}&media_type=movie`}>
                                     <span className="movie_title">{e.title}</span>
                                     <span className="movie_date">{formattedMovieDate}</span>
                                     <span

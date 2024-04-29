@@ -28,7 +28,7 @@ export default function NowTrending() {
         fetchMovies();
     }, [API_KEY]);
 
-    console.log('현재트렌드', trend?.results);
+    // console.log('현재트렌드', trend?.results);
     // console.log('일주일트렌드', trendWeek?.results);
     const prevBtn = () => {
         if (slidePx < 0) {

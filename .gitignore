@@ -45,6 +45,12 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+util/
+pages/
+package-lock.json
+package.json
+next.config.mjs
+jsconfig.json
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/

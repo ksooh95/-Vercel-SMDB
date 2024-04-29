@@ -26,7 +26,7 @@ export default function NowPlayMovie() {
         fetchMovies();
     }, [API_KEY]);
 
-    // console.log(movie?.results);
+    // console.log('지금 상영중', movie);
     const prevBtn = () => {
         if (slidePx < 0) {
             setSlidePx(slidePx + 790);
@@ -69,7 +69,7 @@ export default function NowPlayMovie() {
                         }).format(new Date(movie_date));
                         return (
                             <li key={i} style={{ transform: `translateX(${slidePx}px)`, transition: '0.5s ease all' }}>
-                                <Link href="/">
+                                <Link href={`/detail/${e.id}` + `?id=${e.id}&media_type=movie`}>
                                     <span className="movie_title">{e.title}</span>
                                     <span className="movie_date">{formattedMovieDate}</span>
                                     <span

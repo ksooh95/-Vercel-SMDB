@@ -4,16 +4,19 @@ import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Percent from '../../percent';
 
 export default function Detail() {
     const [detail, setDetail] = useState();
     const [detailV, setDetailV] = useState();
+    const [detailImg, setDetailImg] = useState();
     const [percent, setPercent] = useState(0);
+    const [hoverIndex, setHoverIndex] = useState(null);
 
     const searchParams = useSearchParams();
     const id = searchParams.get('id');
     const media_type = searchParams.get('media_type');
-    console.log(media_type);
+    // console.log(media_type);
     const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
     useEffect(() => {
         const fetchMovies = async () => {
@@ -47,6 +50,22 @@ export default function Detail() {
         fetchMovies();
     }, [API_KEY]);
 
+    useEffect(() => {
+        const fetchMovies = async () => {
+            try {
+                const res = await fetch(
+                    `https://api.themoviedb.org/3/${media_type}/${id}/similar?api_key=${API_KEY}&language=ko-KR`
+                );
+                const data = await res.json();
+                setDetailImg(data);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        fetchMovies();
+    }, [API_KEY]);
+
     const average = (detail?.vote_average * 10).toFixed();
 
     useEffect(() => {
@@ -64,9 +83,10 @@ export default function Detail() {
         return () => clearInterval(interval);
     }, [average]);
 
-    console.log(detail);
+    // console.log(detail);
     // console.log(detailImg);
-    console.log('비디여', detailV);
+    // console.log('비디오', detailV);
+    // console.log('비슷한', detailImg);
 
     return (
         <div className="detail">
@@ -91,7 +111,7 @@ export default function Detail() {
                             )}
                         </h2>
                         <h3 className="d_genres">
-                            {detail?.genres.map((a, i) => {
+                            {detail?.genres?.map((a, i) => {
                                 return (
                                     <span key={i}>
                                         {a?.name}
@@ -142,9 +162,49 @@ export default function Detail() {
                         </div>
                     </div>
                 </div>
-                <div className="opacity"></div>
-                {/* <img src={`https://image.tmdb.org/t/p/original/${detail?.backdrop_path}`} alt="" /> */}
+                <div className="d_similar">
+                    <div className="main_movie_list">
+                        <div className="main_movie_bar">
+                            <h3 className="main_movie_list_title">비슷한 작품</h3>
+                        </div>
+
+                        <ul>
+                            {detailImg?.results?.slice(0, 5).map((e, i) => {
+                                return (
+                                    <li key={i}>
+                                        <Link href={`/detail/${e.id}` + `?id=${e.id}&media_type=${media_type}`}>
+                                            <span className="movie_title">
+                                                {e.name}
+                                                {e.title}
+                                            </span>
+                                            <span className="movie_date">{e.media_type}</span>
+                                            <span
+                                                className={hoverIndex === i ? 'poster mouseOn' : 'poster'}
+                                                onMouseOver={() => setHoverIndex(i)}
+                                                onMouseOut={() => setHoverIndex(null)}
+                                            >
+                                                <span className="movie_hover">
+                                                    {e.name}
+                                                    {e.title} <br />
+                                                    자세히 보러가기
+                                                </span>
+                                                <img
+                                                    src={`https://image.tmdb.org/t/p/original/${e.poster_path}`}
+                                                    alt="movie_poster"
+                                                />
+                                                {/* <span className="movie_average"></span> */}
+                                                <Percent per={(e.vote_average * 10).toFixed()} />
+                                            </span>
+                                        </Link>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                </div>
             </div>
+
+            {/* <img src={`https://image.tmdb.org/t/p/original/${detail?.backdrop_path}`} alt="" /> */}
         </div>
     );
 }
