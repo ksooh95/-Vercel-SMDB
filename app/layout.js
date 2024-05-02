@@ -11,6 +11,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
     let session = await getServerSession(authOptions);
+    let name = session?.user?.name;
     return (
         <html lang="en">
             <body>
@@ -20,8 +21,9 @@ export default async function RootLayout({ children }) {
                     </Link>
                     <div className="nav">
                         <Link href="/">홈</Link>
-                        {session === null ? <LoginBtn /> : <LogoutBtn />}
+                        <Link href="/Mypage">마이페이지</Link>
                     </div>
+                    <div className="header_right">{session === null ? <LoginBtn /> : <LogoutBtn name={name} />}</div>
                 </div>
                 {children}
             </body>

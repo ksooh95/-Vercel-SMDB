@@ -5,6 +5,7 @@ export default function LoginBtn() {
     return (
         <>
             <button
+                className="login_btn"
                 onClick={() => {
                     signIn();
                 }}

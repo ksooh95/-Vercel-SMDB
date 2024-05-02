@@ -85,9 +85,10 @@ html {
     display: flex;
     align-items: center;
     justify-content: normal;
-    padding: 30px 0 15px 100px;
+    padding: 20px 0 20px 100px;
     width: 100%;
     background: #101322;
+    position: relative;
 }
 .header a.logo {
     width: 10%;
@@ -112,14 +113,42 @@ html {
     align-items: center;
     justify-content: normal;
     gap: 5%;
+    width: 50%;
 }
 .header .nav a {
     color: #fff;
     font-weight: 600;
     font-size: 18px;
 }
+.header .header_right {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 17%;
+    transform: translateY(-50%);
+}
 
-.movie_list {
+.header .header_right .login_btn {
+    background: transparent;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    width: 50%;
+}
+.header .header_right .logout {
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    gap: 3%;
+}
+.header .header_right .logout_btn {
+    background: transparent;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+.header .movie_list {
     width: 100%;
     margin: 100px 0;
 }
@@ -591,4 +620,8 @@ html {
     height: 45px;
     border-radius: 100%;
     background: #101322;
+}
+
+.mypage {
+    margin: 100px 0;
 }

@@ -10,6 +10,7 @@ export default function Detail() {
     const [detail, setDetail] = useState();
     const [detailV, setDetailV] = useState();
     const [detailImg, setDetailImg] = useState();
+    const [detailReview, setDetailReview] = useState();
     const [percent, setPercent] = useState(0);
     const [hoverIndex, setHoverIndex] = useState(null);
 
@@ -66,6 +67,22 @@ export default function Detail() {
         fetchMovies();
     }, [API_KEY]);
 
+    useEffect(() => {
+        const fetchMovies = async () => {
+            try {
+                const res = await fetch(
+                    `https://api.themoviedb.org/3/${media_type}/${id}/reviews?api_key=${API_KEY}&language=ko-KR`
+                );
+                const data = await res.json();
+                setDetailReview(data);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        fetchMovies();
+    }, [API_KEY]);
+
     const average = (detail?.vote_average * 10).toFixed();
 
     useEffect(() => {
@@ -87,6 +104,7 @@ export default function Detail() {
     // console.log(detailImg);
     // console.log('비디오', detailV);
     // console.log('비슷한', detailImg);
+    console.log('리뷰', detailReview);
 
     return (
         <div className="detail">
