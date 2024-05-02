@@ -625,3 +625,143 @@ html {
 .mypage {
     margin: 100px 0;
 }
+
+.list {
+    margin-top: 60px;
+}
+.list .list_btn_wrap {
+}
+.list .list_btn_wrap a {
+    border: 1px solid #ddd;
+    padding: 5px 15px;
+    box-sizing: border-box;
+}
+.list .list_btn_wrap a:hover {
+    background: #ddd;
+    color: #172036;
+    transition: 0.2s ease all;
+}
+.list .list_content {
+    margin-top: 15px;
+}
+
+.list .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 45px;
+}
+.list .search .search_content {
+    border: 1px solid #ddd;
+    width: 40%;
+    position: relative;
+}
+.list .search .search_content input {
+    background: transparent;
+    border: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 90%;
+    color: #ddd;
+    outline: none;
+}
+.list .search .search_content button {
+    background: transparent;
+    border: 0;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 25px;
+}
+.list .list_content .list_head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.list .list_content .list_head span {
+    display: block;
+    padding: 10px 0;
+}
+.list .list_content .list_head span.lh1 {
+    width: 20%;
+    text-align: center;
+}
+.list .list_content .list_head span.lh2 {
+    width: 60%;
+    text-align: center;
+}
+.list .list_content .list_head span.lh3 {
+    width: 20%;
+    text-align: center;
+}
+.list .list_content .list_body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+}
+.list .list_content .list_body span {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+.list .list_content .list_body span.lb1 {
+    width: 20%;
+    text-align: center;
+}
+.list .list_content .list_body span.lb2 {
+    width: 60%;
+}
+.list .list_content .list_body span.lb3 {
+    width: 20%;
+    text-align: center;
+}
+
+.write {
+    margin-top: 100px;
+}
+.write .write_content {
+    margin: 0 auto;
+    width: 80%;
+    display: block;
+}
+.write .write_content input {
+    display: block;
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+}
+.write .write_content textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 0;
+    outline: 0;
+}
+
+.write .write_content .write_btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 15px;
+    gap: 15px;
+}
+.write .write_content .write_btn button {
+    background: transparent;
+    border: 1px solid #ddd;
+    color: #ddd;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+.write .write_content .write_btn button:hover {
+    background: #ddd;
+    color: #172036;
+    transition: 0.3s ease all;
+}

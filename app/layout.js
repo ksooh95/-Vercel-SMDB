@@ -22,6 +22,7 @@ export default async function RootLayout({ children }) {
                     <div className="nav">
                         <Link href="/">홈</Link>
                         <Link href="/Mypage">마이페이지</Link>
+                        <Link href="/list">자유게시판</Link>
                     </div>
                     <div className="header_right">{session === null ? <LoginBtn /> : <LogoutBtn name={name} />}</div>
                 </div>
