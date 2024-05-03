@@ -11,7 +11,7 @@ export default function WriteForm({ session }) {
     useEffect(() => {
         if (!session) {
             alert('로그인해야합니다');
-            route.push('/');
+            route.replace('/');
         }
     }, []);
 
