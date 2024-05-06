@@ -24,12 +24,24 @@ export default async function RootLayout({ children }) {
                             {session === null ? <LoginBtn /> : <LogoutBtn name={name} />}
                         </div>
                         <div className="nav">
-                            <Link href="/">🏡 홈</Link>
-                            <Link href="/Mypage">🚹 마이페이지</Link>
-                            <Link href="/list">✏️ 자유게시판</Link>
-                            <Link href="/list">📈 일일 트렌딩</Link>
-                            <Link href="/list">🍿 현재 상영중</Link>
-                            <Link href="/list">🎥 역대 TOP MOVIE</Link>
+                            <Link href="/">
+                                <img src="/menu3.png" alt="" />홈
+                            </Link>
+                            <Link href="/Mypage">
+                                <img src="/menu1.png" alt="" /> 마이페이지
+                            </Link>
+                            <Link href="/list">
+                                <img src="/menu4.png" alt="" /> 자유게시판
+                            </Link>
+                            <Link href="/list">
+                                <img src="/menu5.png" alt="" /> 일일 트렌딩
+                            </Link>
+                            <Link href="/list">
+                                <img src="/menu7.png" alt="" /> 현재 상영중
+                            </Link>
+                            <Link href="/list">
+                                <img src="/menu6.png" alt="" /> 역대 TOP MOVIE
+                            </Link>
                         </div>
                     </div>
                     <div class="con">{children}</div>

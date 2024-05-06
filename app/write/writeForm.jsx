@@ -28,7 +28,10 @@ export default function WriteForm({ session }) {
             }),
         })
             .then((res) => res.json())
-            .then((data) => console.log(data));
+            .then((data) => {
+                alert('게시글이 작성되었습니다');
+                route.push('/list');
+            });
     };
 
     return (

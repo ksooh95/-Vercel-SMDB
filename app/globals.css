@@ -145,8 +145,14 @@ html {
     color: #999;
     font-weight: 600;
     font-size: 18px;
-    display: block;
-    margin-top: 15px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    gap: 10px;
+}
+.header .nav a img {
+    width: 28px;
 }
 .header .nav a:hover {
     color: #ddd;
@@ -809,4 +815,46 @@ html {
     background: #ddd;
     color: #172036;
     transition: 0.3s ease all;
+}
+
+.list_detail {
+    margin-top: 100px;
+}
+.list_detail .ld_title {
+    font-size: 46px;
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.list_detail .ld_dn {
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    gap: 5px;
+}
+.list_detail .ld_dn .ld_date {
+}
+.list_detail .ld_dn .ld_name {
+}
+.list_detail .ld_text {
+    font-size: 18px;
+    display: block;
+    padding: 30px 0;
+    white-space: pre-line;
+}
+
+.list_detail .ld_btn_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    gap: 20px;
+}
+.list_detail .ld_btn_wrap button {
+    padding: 5px 15px;
+    box-sizing: border-box;
+    background: transparent;
+    border: 1px solid #ddd;
+    color: #ddd;
+    cursor: pointer;
 }

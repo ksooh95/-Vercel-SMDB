@@ -33,17 +33,12 @@ export default function List() {
                         <span className="lh3">등록일</span>
                     </div>
                     {list?.map((a, i) => {
-                        // const displayDate2 = new Date(a.date).toLocaleDateString('ko-KR', {
-                        //     year: 'numeric',
-                        //     month: '2-digit',
-                        //     day: '2-digit',
-                        // });
                         const displayDate = new Date(a.date).toISOString().split('T')[0];
                         return (
                             <div className="list_body" key={i}>
                                 <span className="lb1">{i + 1}</span>
                                 <span className="lb2">
-                                    <Link href="/">{a.title}</Link>
+                                    <Link href={`/listDetail?id=${a._id}`}>{a.title}</Link>
                                 </span>
                                 <span className="lb3">{displayDate}</span>
                             </div>
