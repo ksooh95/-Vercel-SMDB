@@ -33,7 +33,7 @@ export default async function RootLayout({ children }) {
                             <Link href="/list">
                                 <img src="/menu4.png" alt="" /> 자유게시판
                             </Link>
-                            <Link href="/list">
+                            <Link href="/trending">
                                 <img src="/menu5.png" alt="" /> 일일 트렌딩
                             </Link>
                             <Link href="/list">
