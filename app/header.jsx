@@ -13,16 +13,14 @@ export default function Header({ session }) {
     return (
         <div className={fold === true ? 'header fold' : 'header'}>
             <div className="header_top">
-                {/* <Link href="/" passHref className="logo">
-                    <img src="/logo3.png" alt="로고" />
-                </Link> */}
                 <button
                     type="button"
                     onClick={() => {
                         menuFold();
                     }}
+                    style={{ width: '28px', display: 'block' }}
                 >
-                    {fold === true ? '⇥' : '⇤'}
+                    <img src="/ham.png" alt="" style={{ width: '100%' }} />
                 </button>
             </div>
 
@@ -39,10 +37,10 @@ export default function Header({ session }) {
                 <Link href="/trending">
                     <img src="/menu5.png" alt="" /> 일일 트렌딩
                 </Link>
-                <Link href="/list">
+                <Link href="/nowPlaying">
                     <img src="/menu7.png" alt="" /> 현재 상영중
                 </Link>
-                <Link href="/list">
+                <Link href="/topMovie">
                     <img src="/menu6.png" alt="" /> 역대 TOP MOVIE
                 </Link>
             </div>

@@ -33,7 +33,15 @@ export default function List() {
                         <span className="lh3">등록일</span>
                     </div>
                     {list?.map((a, i) => {
-                        const displayDate = new Date(a.date).toISOString().split('T')[0];
+                        let displayDate = '';
+                        // 날짜가 유효한지 확인
+                        if (!isNaN(new Date(a.date).getTime())) {
+                            // 유효한 경우, ISO 문자열로 변환
+                            displayDate = new Date(a.date).toISOString().split('T')[0];
+                        } else {
+                            // 유효하지 않은 경우, 기본 값 설정 또는 오류 처리
+                            displayDate = '유효하지 않은 날짜';
+                        }
                         return (
                             <div className="list_body" key={i}>
                                 <span className="lb1">{i + 1}</span>
