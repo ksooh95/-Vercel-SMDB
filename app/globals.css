@@ -1054,17 +1054,28 @@ html {
     height: 300px;
 }
 .skeleton-wrapper .skeleton-title {
-    background: #999;
+    background-image: linear-gradient(90deg, #333, #444, #555, #666, #555, #444, #333);
+    background-size: 200% 100%; /* 배경 크기를 넓혀서 애니메이션 효과 시 시각적 변화가 더욱 명확하게 보이게 합니다 */
     width: 50%;
     height: 20px;
     border-radius: 15px;
     display: block;
+    animation: skeletonLoading 1.5s infinite linear;
 }
 .skeleton-wrapper .skeleton-poster {
-    background: #666;
+    background: #999;
     width: 100%;
     border-radius: 15px;
     height: 280px;
     display: block;
     margin-top: 15px;
+}
+
+@keyframes skeletonLoading {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
 }

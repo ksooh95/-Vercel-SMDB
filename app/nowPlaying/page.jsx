@@ -10,19 +10,27 @@ export default function NowPlaying() {
     const [trend, setTrend] = useState({ results: [] });
     const [page, setPage] = useState(1); // 페이지 번호 상태 추가
     const [loading, setLoading] = useState(true);
+    const [loadingMore, setLoadingMore] = useState(false); // 더보기
 
     const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                setLoading(true);
+                if (page === 1) {
+                    setLoading(true); // 첫 페이지 로딩인 경우만 전체 로딩 상태 활성화
+                }
                 const res = await fetch(
                     `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=ko-KR&region=KR&page=${page}`
                 );
                 const data = await res.json();
-                setTrend((prev) => ({ ...data, results: [...prev.results, ...data.results] })); // 기존 목록에 새로운 목록 추가
-                setLoading(false); // 데이터 로딩 완료
-                // setTrend(data);
+                setTimeout(() => {
+                    setTrend((prev) => ({ ...data, results: [...prev.results, ...data.results] }));
+                    if (page === 1) {
+                        setLoading(false); // 첫 페이지 로딩인 경우만 전체 로딩 상태 비활성화
+                    } else {
+                        setLoadingMore(false); // 더보기 로딩 상태 비활성화
+                    }
+                }, 500); // .5초 후에 실행
             } catch (err) {
                 console.error(err);
             }
@@ -33,6 +41,7 @@ export default function NowPlaying() {
     // 더보기 함수
     const handleLoadMore = () => {
         setPage((prevPage) => prevPage + 1); // 페이지 번호 증가
+        setLoadingMore(true); // 더보기 로딩 시작
     };
     console.log('trend :', trend);
     return (
@@ -80,10 +89,12 @@ export default function NowPlaying() {
                             })}
                         </ul>
                     )}
-                    <button className="more_btn" onClick={handleLoadMore}>
-                        더보기
-                    </button>{' '}
-                    {/* 더보기 버튼 */}
+                    <ul className="trending_list">
+                        {loadingMore && Array.from({ length: 20 }).map((_, i) => <Skeleton key={i} />)}
+                    </ul>
+                    <button className="more_btn" onClick={handleLoadMore} disabled={loadingMore}>
+                        {loadingMore ? '로딩 중...' : '더보기'}
+                    </button>
                 </div>
             </div>
         </div>
