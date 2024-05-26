@@ -1,9 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { useParams, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function List() {
+    const params = useSearchParams();
+    console.log(params);
     const [list, setList] = useState();
 
     useEffect(() => {

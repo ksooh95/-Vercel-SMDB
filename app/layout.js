@@ -1,7 +1,7 @@
 import './globals.css';
 
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { authOptions } from '../pages/api/auth/[...nextauth]';
 import Header from './header';
 import LoginBtn from './LoginBtn';
 import LogoutBtn from './LogoutBtn';

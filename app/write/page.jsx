@@ -1,5 +1,5 @@
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { authOptions } from '../../pages/api/auth/[...nextauth]';
 import WriteForm from './writeForm';
 
 export default async function Write() {

@@ -34,7 +34,7 @@ export default function Header({ session }) {
                 <Link href="/list">
                     <img src="/menu4.png" alt="" /> 자유게시판
                 </Link>
-                <Link href="/trending">
+                <Link href="/trending2">
                     <img src="/menu5.png" alt="" /> 일일 트렌딩
                 </Link>
                 <Link href="/nowPlaying">
