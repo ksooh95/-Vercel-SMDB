@@ -18,6 +18,7 @@ export default function Detail() {
     const id = searchParams.get('id');
     const media_type = searchParams.get('media_type');
     // console.log(media_type);
+
     const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
     useEffect(() => {
         const fetchMovies = async () => {
@@ -100,11 +101,10 @@ export default function Detail() {
         return () => clearInterval(interval);
     }, [average]);
 
-    // console.log(detail);
-    // console.log(detailImg);
-    // console.log('비디오', detailV);
+    console.log('상세 : ', detail); // console.log(detailImg);
+    console.log('비디오', detailV);
     // console.log('비슷한', detailImg);
-    console.log('리뷰', detailReview);
+    // console.log('리뷰', detailReview);
 
     return (
         <div className="detail">
@@ -187,7 +187,7 @@ export default function Detail() {
                         </div>
 
                         <ul>
-                            {detailImg?.results?.slice(0, 5).map((e, i) => {
+                            {detailImg?.results?.slice(0, 4).map((e, i) => {
                                 return (
                                     <li key={i}>
                                         <Link href={`/detail/${e.id}` + `?id=${e.id}&media_type=${media_type}`}>

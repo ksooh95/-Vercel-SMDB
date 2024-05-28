@@ -40,9 +40,9 @@ export default function Header({ session }) {
                 <Link href="/nowPlaying">
                     <img src="/menu7.png" alt="" /> 현재 상영중
                 </Link>
-                <Link href="/topMovie">
+                {/* <Link href="/topMovie">
                     <img src="/menu6.png" alt="" /> 역대 TOP MOVIE
-                </Link>
+                </Link> */}
             </div>
         </div>
     );
