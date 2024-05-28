@@ -40,8 +40,8 @@ export default function List() {
                         // 날짜가 유효한지 확인
                         if (!isNaN(new Date(a.date).getTime())) {
                             // 유효한 경우, ISO 문자열로 변환
-                            // displayDate = new Date(a.date).toISOString().split('T')[0];
-                            displayDate = new Date();
+                            displayDate = new Date(a.date).toISOString().split('T')[0];
+                            // displayDate = new Date();
                         } else {
                             // 유효하지 않은 경우, 기본 값 설정 또는 오류 처리
                             displayDate = '유효하지 않은 날짜';

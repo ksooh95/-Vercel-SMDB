@@ -11,7 +11,7 @@ export default async function Handler(req, res) {
     // console.log('reqbody~~~~~~~~~~~~~', req.body);
     if (req.method == 'POST') {
         const db = (await connectDB).db('forum');
-        let result = await db.collection('post1').insertOne(req.body);
+        let result = await db.collection('post').insertOne(req.body);
         return res.status(200).json('작성완료');
     }
 }
