@@ -13,7 +13,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
     let session = await getServerSession(authOptions);
-    let name = session.name;
+    let name = session?.name;
     return (
         <html lang="ko">
             <body>
